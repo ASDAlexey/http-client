@@ -1,13 +1,23 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
+
+interface Person {
+  name: string
+}
 
 @Injectable({ providedIn: 'root' })
 export class PeopleService {
   constructor(private http: HttpClient) {
   }
 
-  fetchPeople(): Observable<Object> {
-    return this.http.get('/assets/data/people.json');
+  fetchPeople(): Observable<Person> {
+    // const params = new HttpParams()
+    //   .set('id', '123')
+    //   .set('includeAddress', 'true');
+    // return this.http.get<Person>('/assets/data/people.json', { params });
+
+    const newPerson = { name: 'Pete' };
+    return this.http.post<Person>('/assets/data/people.json', newPerson);
   }
 }
