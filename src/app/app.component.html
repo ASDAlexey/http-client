@@ -1,2 +1,7 @@
-<!--<router-outlet></router-outlet>-->
+<h1>Fetch data from API</h1>
+<button (click)="fetchPeople()">Fetch people</button>
+<hr>
+<ul>
+  <li *ngFor="let person of people$ | async"> {{ person.name }}</li>
+</ul>
 
