@@ -17,7 +17,11 @@ export class PeopleService {
     //   .set('includeAddress', 'true');
     // return this.http.get<Person>('/assets/data/people.json', { params });
 
-    const newPerson = { name: 'Pete' };
-    return this.http.post<Person>('/assets/data/people.json', newPerson);
+    // const newPerson = { name: 'Pete' };
+    // return this.http.post<Person>('/assets/data/people.json', newPerson);
+
+    return this.http
+               // .get<Person>('/assets/data/unavailable.json');
+               .get<Person>('/assets/data/people.json');
   }
 }
